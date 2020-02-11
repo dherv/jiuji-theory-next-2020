@@ -28,9 +28,9 @@ const StyledNav = styled.nav`
 `;
 
 const StyledTitle = styled.h1`
+  max-width: 5ch;
   font-family: var(--title-font);
   font-size: 4rem;
-  word-wrap: break-word;
 `;
 
 const StyledListItem = styled.li`
