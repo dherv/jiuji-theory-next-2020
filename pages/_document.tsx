@@ -1,7 +1,6 @@
 import Document from "next/document";
 import { ServerStyleSheet, createGlobalStyle } from "styled-components";
 import { Normalize } from "styled-normalize";
-import { Fragment } from "react";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -66,11 +65,11 @@ export default class MyDocument extends Document {
         originalRenderPage({
           enhanceApp: App => props =>
             sheet.collectStyles(
-              <Fragment>
+              <>
                 <Normalize />
                 <GlobalStyles />
                 <App {...props} />
-              </Fragment>
+              </>
             )
         });
 
