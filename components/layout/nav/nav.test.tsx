@@ -1,6 +1,5 @@
 import React from "react";
-
-import { Nav } from "./nav";
+import Nav from ".";
 import { render } from "@testing-library/react";
 
 describe("Nav", () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav } from "../components/layout/nav/nav";
+import Nav from "../components/layout/nav";
 
 const Home = () => (
   <>
