@@ -1,10 +1,13 @@
 import React from "react";
 import Nav from "../components/layout/nav";
+import NoteAdd from "../components/note/add";
 
 const Home = () => (
   <>
     <Nav></Nav>
-    <main></main>
+    <main>
+      <NoteAdd></NoteAdd>
+    </main>
   </>
 );
 
