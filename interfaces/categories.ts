@@ -4,3 +4,8 @@ export interface ICategories {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface INoteInput {
+  label: number;
+  value: string;
+}
