@@ -87,6 +87,14 @@ describe("NoteAdd", () => {
       await wait(() => {
         expect(queryByLabelText("2 -")).toBeNull();
       });
+
+      // the count should be reset
+      fireEvent.change(firstInput, { target: { value: "23" } });
+      fireEvent.keyDown(firstInput, { key: "Enter", keyCode: 13 });
+
+      await wait(() => {
+        expect(queryByLabelText("2 -")).not.toBeNull();
+      });
     });
 
     it("should update the current selected option when choosing an option in a select", async () => {

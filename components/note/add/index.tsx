@@ -84,8 +84,9 @@ const NoteAdd = () => {
     };
 
     Api.post("/notes", note).then(response => console.log(response));
-    // clear all inputs
+    // clear all inputs and reset count
     setInputs([initialInput]);
+    setCount(1);
   };
   return (
     <form>
