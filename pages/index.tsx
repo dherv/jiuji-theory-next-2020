@@ -1,14 +1,11 @@
 import React from "react";
-import Nav from "../components/layout/nav";
 import NoteAdd from "../components/note/add";
+import Layout from "../components/layout";
 
 const Home = () => (
-  <>
-    <Nav></Nav>
-    <main>
-      <NoteAdd></NoteAdd>
-    </main>
-  </>
+  <Layout>
+    <NoteAdd></NoteAdd>
+  </Layout>
 );
 
 export default Home;

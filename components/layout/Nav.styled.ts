@@ -4,7 +4,6 @@ export const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
 `;
 
 export const StyledTitle = styled.h1`
