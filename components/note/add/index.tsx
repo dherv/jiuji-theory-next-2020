@@ -9,9 +9,11 @@ import {
   ITechnique
 } from "../../../interfaces/interfaces";
 import NoteAddButton from "./NoteAddButton";
+import Api from "../../../api/Api";
 
 const NoteAdd = () => {
   const initialInput = { orderNumber: 1, text: "" };
+  const [name, setName] = useState<string>();
   const [inputs, setInputs] = useState<INoteInput[]>([initialInput]);
   const [count, setCount] = useState<number>(1);
   const [category, setCategory] = useState<ICategory>();
@@ -58,7 +60,7 @@ const NoteAdd = () => {
     }
   };
 
-  const handleSelect = (event, optionsType) => {
+  const handleSelect = (value, optionsType) => {
     const optionsMap = new Map([
       ["categories", id => setCategory(id)],
       ["positions", id => setPosition(id)],
@@ -66,7 +68,7 @@ const NoteAdd = () => {
       ["techniques", id => setTechnique(id)]
     ]);
 
-    optionsMap.get(optionsType)(event.target.value);
+    optionsMap.get(optionsType)(value);
   };
 
   const handleSubmit = event => {
@@ -80,12 +82,18 @@ const NoteAdd = () => {
       techniqueId: technique,
       noteItems: inputs.filter(i => i.text)
     };
+
+    Api.post("/notes", note).then(response => console.log(response));
     // clear all inputs
     setInputs([initialInput]);
   };
   return (
     <form>
-      <input placeholder="name" type="text"></input>
+      <input
+        placeholder="name"
+        type="text"
+        onChange={event => setName(event.target.value)}
+      ></input>
       <NoteAddSelect
         optionsType="categories"
         handleSelect={handleSelect}

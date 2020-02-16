@@ -9,7 +9,10 @@ const NoteAddSelect: FC<INoteAddSelect> = ({ optionsType, handleSelect }) => {
 
   const fetchOptions = async () => {
     await Api.get(`/${optionsType}`)
-      .then(response => setOptions(response))
+      .then(response => {
+        setOptions(response);
+        handleSelect(response[0].id, optionsType);
+      })
       .catch(error => console.error(error));
     setLoaded(true);
   };
@@ -24,7 +27,7 @@ const NoteAddSelect: FC<INoteAddSelect> = ({ optionsType, handleSelect }) => {
         <label htmlFor={optionsType}>{optionsType}</label>
         <select
           id={optionsType}
-          onChange={event => handleSelect(event, optionsType)}
+          onChange={event => handleSelect(event.target.value, optionsType)}
         >
           {options.map(option => (
             <option key={option.id} value={option.id}>
