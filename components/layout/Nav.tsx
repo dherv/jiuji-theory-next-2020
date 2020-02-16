@@ -1,28 +1,23 @@
 import { FC } from "react";
 import Link from "next/link";
-import {
-  StyledLink,
-  StyledListItem,
-  StyledNav,
-  StyledTitle
-} from "./Nav.styled";
+import { SCNav as SC } from "./Nav.styled";
 
 const Nav: FC<{}> = () => (
-  <StyledNav>
-    <StyledTitle>jiuji theory</StyledTitle>
+  <SC.Nav>
+    <SC.Title>jiuji theory</SC.Title>
     <ul>
-      <StyledListItem>
+      <SC.ListItem>
         <Link href="/about">
-          <StyledLink>videos</StyledLink>
+          <SC.Link>videos</SC.Link>
         </Link>
-      </StyledListItem>
-      <StyledListItem>
+      </SC.ListItem>
+      <SC.ListItem>
         <Link href="/about">
-          <StyledLink>account</StyledLink>
+          <SC.Link>account</SC.Link>
         </Link>
-      </StyledListItem>
+      </SC.ListItem>
     </ul>
-  </StyledNav>
+  </SC.Nav>
 );
 
 export default Nav;

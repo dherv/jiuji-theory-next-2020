@@ -1,5 +1,6 @@
 import { FC, ChangeEvent, KeyboardEvent } from "react";
 import { INoteInput } from "../../../interfaces/interfaces";
+import { SCNoteAddText as SC } from "./NoteAddText.styled";
 
 const NoteAddText: FC<{
   inputs: INoteInput[];
@@ -7,10 +8,13 @@ const NoteAddText: FC<{
   handlePressEnter: (event: KeyboardEvent) => void;
 }> = ({ inputs, handleChange, handlePressEnter }) => {
   return (
-    <ul>
+    <SC.List>
       {inputs.map(i => (
-        <li key={i.orderNumber}>
-          <label htmlFor={String(i.orderNumber)}>{i.orderNumber} -</label>
+        <SC.ListItem key={i.orderNumber}>
+          <SC.Label htmlFor={String(i.orderNumber)}>
+            <SC.LabelNumber>{i.orderNumber}</SC.LabelNumber>
+            <SC.LabelHyphen> -</SC.LabelHyphen>
+          </SC.Label>
           <input
             id={String(i.orderNumber)}
             type="text"
@@ -20,9 +24,10 @@ const NoteAddText: FC<{
             onChange={event => handleChange(event)}
             onKeyDown={event => handlePressEnter(event)}
           ></input>
-        </li>
+        </SC.ListItem>
       ))}
-    </ul>
+    </SC.List>
   );
 };
+
 export default NoteAddText;

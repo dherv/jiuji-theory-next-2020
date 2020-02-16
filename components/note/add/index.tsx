@@ -10,6 +10,7 @@ import {
 } from "../../../interfaces/interfaces";
 import NoteAddButton from "./NoteAddButton";
 import Api from "../../../api/Api";
+import { SCNoteAdd as SC } from "./index.styled";
 
 const NoteAdd = () => {
   const initialInput = { orderNumber: 1, text: "" };
@@ -89,7 +90,7 @@ const NoteAdd = () => {
     setCount(1);
   };
   return (
-    <form>
+    <SC.Form>
       <input
         placeholder="name"
         type="text"
@@ -117,7 +118,7 @@ const NoteAdd = () => {
         handlePressEnter={handlePressEnter}
       ></NoteAddText>
       <NoteAddButton handleSubmit={handleSubmit}></NoteAddButton>
-    </form>
+    </SC.Form>
   );
 };
 

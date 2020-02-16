@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-export const StyledLayout = styled.div`
-  padding: 2rem;
-`;
-export const StyledMainContainer = styled.div`
-  margin: 2rem 0;
-`;
+export const SCLayout = {
+  Layout: styled.div`
+    padding: 2rem;
+  `,
+  MainContainer: styled.div`
+    margin: 2rem 0;
+  `
+};

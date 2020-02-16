@@ -1,17 +1,17 @@
 import { FC } from "react";
 import Nav from "./Nav";
-import { StyledLayout, StyledMainContainer } from "./index.styled";
+import { SCLayout as SC } from "./index.styled";
 
 const Layout: FC<{}> = ({ children }) => {
   return (
-    <StyledLayout>
+    <SC.Layout>
       <header>
         <Nav />
       </header>
       <main>
-        <StyledMainContainer>{children}</StyledMainContainer>
+        <SC.MainContainer>{children}</SC.MainContainer>
       </main>
-    </StyledLayout>
+    </SC.Layout>
   );
 };
 
