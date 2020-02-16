@@ -1,10 +1,10 @@
 import { useState, FC, useEffect } from "react";
 import { INoteAddSelect } from "./NoteAddSelect.interface";
 import Api from "../../../api/Api";
-import { ICategories } from "../../../interfaces/categories";
+import { ICategory } from "../../../interfaces/interfaces";
 
-const NoteAddSelect: FC<INoteAddSelect> = ({ optionsType }) => {
-  const [options, setOptions] = useState<ICategories[]>();
+const NoteAddSelect: FC<INoteAddSelect> = ({ optionsType, handleSelect }) => {
+  const [options, setOptions] = useState<ICategory[]>();
   const [loaded, setLoaded] = useState<boolean>(false);
 
   const fetchOptions = async () => {
@@ -20,13 +20,19 @@ const NoteAddSelect: FC<INoteAddSelect> = ({ optionsType }) => {
 
   return (
     loaded && (
-      <select>
-        {options.map(option => (
-          <option key={option.id} value={option.id}>
-            {option.name}
-          </option>
-        ))}
-      </select>
+      <>
+        <label htmlFor={optionsType}>{optionsType}</label>
+        <select
+          id={optionsType}
+          onChange={event => handleSelect(event, optionsType)}
+        >
+          {options.map(option => (
+            <option key={option.id} value={option.id}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+      </>
     )
   );
 };

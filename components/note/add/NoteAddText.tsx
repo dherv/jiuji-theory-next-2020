@@ -1,5 +1,5 @@
 import { FC, ChangeEvent, KeyboardEvent } from "react";
-import { INoteInput } from "../../../interfaces/categories";
+import { INoteInput } from "../../../interfaces/interfaces";
 
 const NoteAddText: FC<{
   inputs: INoteInput[];
@@ -9,13 +9,13 @@ const NoteAddText: FC<{
   return (
     <ul>
       {inputs.map(i => (
-        <li key={i.label}>
-          <label htmlFor={String(i.label)}>{i.label} -</label>
+        <li key={i.orderNumber}>
+          <label htmlFor={String(i.orderNumber)}>{i.orderNumber} -</label>
           <input
-            id={String(i.label)}
+            id={String(i.orderNumber)}
             type="text"
-            name={String(i.label)}
-            value={i.value}
+            name={String(i.orderNumber)}
+            value={i.text}
             autoFocus
             onChange={event => handleChange(event)}
             onKeyDown={event => handlePressEnter(event)}

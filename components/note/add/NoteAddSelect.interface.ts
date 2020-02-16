@@ -1,3 +1,9 @@
+import { FormEvent } from "react";
+type OptionTypes = "categories" | "positions" | "techniques" | "teachers";
 export interface INoteAddSelect {
-  optionsType: "categories" | "positions" | "techniques" | "teachers";
+  optionsType: OptionTypes;
+  handleSelect: (
+    event: FormEvent<HTMLSelectElement>,
+    optionsType: OptionTypes
+  ) => void;
 }
