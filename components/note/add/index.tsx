@@ -12,7 +12,7 @@ import NoteAddButton from "./NoteAddButton";
 import Api from "../../../api/Api";
 import { SCNoteAdd as SC } from "./index.styled";
 
-const NoteAdd = () => {
+const NoteAdd = ({ options }: any) => {
   const initialInput = { orderNumber: 1, text: "" };
   const [name, setName] = useState<string>();
   const [inputs, setInputs] = useState<INoteInput[]>([initialInput]);
@@ -84,11 +84,13 @@ const NoteAdd = () => {
       noteItems: inputs.filter(i => i.text)
     };
 
-    Api.post("/notes", note).then(response => console.log(response));
-    // clear all inputs and reset count
-    setInputs([initialInput]);
-    setCount(1);
+    Api.post("/notes", note).then(response => {
+      // clear all inputs and reset count
+      setInputs([initialInput]);
+      setCount(1);
+    });
   };
+
   return (
     <SC.Form>
       <input
@@ -97,18 +99,22 @@ const NoteAdd = () => {
         onChange={event => setName(event.target.value)}
       ></input>
       <NoteAddSelect
+        options={options.categories}
         optionsType="categories"
         handleSelect={handleSelect}
       ></NoteAddSelect>
       <NoteAddSelect
+        options={options.positions}
         optionsType="positions"
         handleSelect={handleSelect}
       ></NoteAddSelect>
       <NoteAddSelect
+        options={options.teachers}
         optionsType="techniques"
         handleSelect={handleSelect}
       ></NoteAddSelect>
       <NoteAddSelect
+        options={options.techniques}
         optionsType="teachers"
         handleSelect={handleSelect}
       ></NoteAddSelect>

@@ -1,10 +1,10 @@
 import React from "react";
-import NoteAdd from "../components/note/add";
 import Layout from "../components/layout";
+import Note from "../components/note/Note";
 
 const Home = () => (
   <Layout>
-    <NoteAdd></NoteAdd>
+    <Note></Note>
   </Layout>
 );
 

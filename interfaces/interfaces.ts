@@ -1,3 +1,25 @@
+export interface INote {
+  id: number;
+  name: string;
+  variant?: number;
+  categoryId: number;
+  positionId: number;
+  teacherId: number;
+  techniqueId: number;
+  createdAt: string;
+  updatedAt: string;
+  noteItems: INoteItem[];
+}
+
+export interface INoteItem {
+  id: number;
+  text: string;
+  orderNumber: number;
+  noteId: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface ICategory {
   id: number;
   name: string;

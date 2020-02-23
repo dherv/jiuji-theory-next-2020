@@ -1,9 +1,20 @@
 import React from "react";
-import NoteAdd from "./index";
+import NoteAdd from ".";
 import { render, wait, cleanup, fireEvent } from "@testing-library/react";
 
 describe("NoteAdd", () => {
-  const props = {};
+  const sample = [
+    { id: 1, name: "test1" },
+    { id: 2, name: "test2" }
+  ];
+  const props = {
+    options: {
+      categories: sample,
+      techniques: sample,
+      teachers: sample,
+      positions: sample
+    }
+  };
 
   describe("NoteAdd component", () => {
     window.fetch = jest.fn().mockImplementation((url: String) => {
@@ -25,28 +36,30 @@ describe("NoteAdd", () => {
     });
     it("should display one form", async () => {
       expect.assertions(1);
-      const { getByRole } = render(<NoteAdd />);
+      const { getByRole } = render(<NoteAdd {...props} />);
       await wait(() => expect(getByRole("form")).toBeDefined());
     });
     it("should display one input text with a placeholder 'name'", async () => {
       expect.assertions(1);
-      const { getByPlaceholderText } = render(<NoteAdd />);
+      const { getByPlaceholderText } = render(<NoteAdd {...props} />);
       await wait(() => expect(getByPlaceholderText("name")).toBeDefined());
     });
     it("should display 4 NoteAddSelect components", async () => {
-      const { getAllByText } = render(<NoteAdd />);
+      const { getAllByText } = render(<NoteAdd {...props} />);
       await wait(() => {
         expect(getAllByText("test1")).toHaveLength(4);
       });
     });
     it("should display the first input of text add", async () => {
-      const { getAllByLabelText } = render(<NoteAdd />);
+      const { getAllByLabelText } = render(<NoteAdd {...props} />);
       await wait(() => {
         expect(getAllByLabelText("1 -")).toHaveLength(1);
       });
     });
     it("should store the text of the first on enter click and display the second input", async () => {
-      const { getByLabelText, getByDisplayValue } = render(<NoteAdd />);
+      const { getByLabelText, getByDisplayValue } = render(
+        <NoteAdd {...props} />
+      );
       await wait(() => {
         const firstInput = getByLabelText("1 -");
         fireEvent.change(firstInput, { target: { value: "23" } });
@@ -58,7 +71,7 @@ describe("NoteAdd", () => {
 
     it("should submit the form when clicking submit button", async () => {
       const { getByRole, getByLabelText, queryByLabelText } = render(
-        <NoteAdd />
+        <NoteAdd {...props} />
       );
       const firstInput = getByLabelText("1 -");
       fireEvent.change(firstInput, { target: { value: "23" } });
@@ -72,7 +85,7 @@ describe("NoteAdd", () => {
 
     it("should submit the form when clicking submit button", async () => {
       const { getByRole, getByLabelText, queryByLabelText } = render(
-        <NoteAdd />
+        <NoteAdd {...props} />
       );
       const firstInput = getByLabelText("1 -");
       fireEvent.change(firstInput, { target: { value: "23" } });
@@ -98,7 +111,7 @@ describe("NoteAdd", () => {
     });
 
     it("should update the current selected option when choosing an option in a select", async () => {
-      const { getAllByDisplayValue } = render(<NoteAdd />);
+      const { getAllByDisplayValue } = render(<NoteAdd {...props} />);
       // check the options come from the api. There are 4 selects
       await wait(() => {
         expect(getAllByDisplayValue("test1")).toHaveLength(4);
