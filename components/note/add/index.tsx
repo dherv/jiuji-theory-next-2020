@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NoteAddSelect from "./NoteAddSelect";
 import NoteAddText from "./NoteAddText";
 import {
@@ -21,6 +21,12 @@ const NoteAdd = ({ options }: any) => {
   const [position, setPosition] = useState<IPosition>();
   const [teacher, setTeacher] = useState<ITeacher>();
   const [technique, setTechnique] = useState<ITechnique>();
+
+  useEffect(() => {
+    Object.entries(options).map(([key, value]) => {
+      handleSelect(value[0].id, key);
+    });
+  }, []);
 
   const handleChange = event => {
     const index = inputs.findIndex(
