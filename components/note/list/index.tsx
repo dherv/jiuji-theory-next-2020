@@ -1,6 +1,8 @@
 import Api from "../../../api/Api";
 import { useEffect, useState } from "react";
 import { INote } from "../../../interfaces/interfaces";
+import { SCNoteList as SC } from "./index.styled";
+import NoteListItems from "./NoteListItems";
 
 const fetchNotes = () => {
   return Api.get("/notes")
@@ -17,19 +19,36 @@ const NoteList = ({ options }: any) => {
   }, []);
 
   return (
-    <ul style={{ padding: "0 2rem" }}>
+    <SC.List style={{ padding: "0 2rem" }}>
       {notes.map(n => (
-        <li key={n.id}>
+        <SC.ListItem key={n.id}>
           <ul>
-            <li>{n.name}</li>
-            <li>{new Date(n.createdAt).toLocaleDateString()}</li>
-            <li>{options.techniques.find(o => o.id === n.techniqueId).name}</li>
-            <li>{options.teachers.find(t => t.id === n.teacherId).name}</li>
-            <li>{options.positions.find(p => p.id === n.teacherId).name}</li>
+            <li>
+              <SC.ListItemHeader>
+                <div>
+                  {options.teachers.find(t => t.id === n.teacherId).name}
+                </div>
+
+                <div>{new Date(n.createdAt).toLocaleDateString()}</div>
+              </SC.ListItemHeader>
+            </li>
+            <SC.ListItemHeaderSub>
+              <div>
+                {options.techniques.find(o => o.id === n.techniqueId).name}
+              </div>
+              <div>/</div>
+              <div>
+                {options.positions.find(p => p.id === n.teacherId).name}
+              </div>
+            </SC.ListItemHeaderSub>
+            <SC.ListItemTitle>{n.name}</SC.ListItemTitle>
+            <li>
+              <NoteListItems noteItems={n.noteItems} />
+            </li>
           </ul>
-        </li>
+        </SC.ListItem>
       ))}
-    </ul>
+    </SC.List>
   );
 };
 

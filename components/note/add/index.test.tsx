@@ -110,6 +110,7 @@ describe("NoteAdd", () => {
       });
     });
 
+    //TODO: test all the options are set initially on submit (if user does not select anything)
     it("should update the current selected option when choosing an option in a select", async () => {
       const { getAllByDisplayValue } = render(<NoteAdd {...props} />);
       // check the options come from the api. There are 4 selects
