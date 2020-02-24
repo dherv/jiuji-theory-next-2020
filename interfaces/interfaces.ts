@@ -6,6 +6,7 @@ export interface INote {
   positionId: number;
   teacherId: number;
   techniqueId: number;
+  date: string;
   createdAt: string;
   updatedAt: string;
   noteItems: INoteItem[];

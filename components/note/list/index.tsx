@@ -28,8 +28,7 @@ const NoteList = ({ options }: any) => {
                 <div>
                   {options.teachers.find(t => t.id === n.teacherId).name}
                 </div>
-
-                <div>{new Date(n.createdAt).toLocaleDateString()}</div>
+                <div>{new Date(n.date).toLocaleDateString()}</div>
               </SC.ListItemHeader>
             </li>
             <SC.ListItemHeaderSub>

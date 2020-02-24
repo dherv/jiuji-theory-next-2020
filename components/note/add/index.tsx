@@ -21,10 +21,12 @@ const NoteAdd = ({ options }: any) => {
   const [position, setPosition] = useState<IPosition>();
   const [teacher, setTeacher] = useState<ITeacher>();
   const [technique, setTechnique] = useState<ITechnique>();
+  const [date, setDate] = useState<string>();
 
   useEffect(() => {
+    //TODO: add presentation for empty database
     Object.entries(options).map(([key, value]) => {
-      handleSelect(value[0].id, key);
+      value[0] && handleSelect(value[0].id, key);
     });
   }, []);
 
@@ -83,6 +85,7 @@ const NoteAdd = ({ options }: any) => {
     //api call
     const note = {
       name: name,
+      date: new Date(date),
       categoryId: category,
       positionId: position,
       teacherId: teacher,
@@ -104,6 +107,11 @@ const NoteAdd = ({ options }: any) => {
         type="text"
         onChange={event => setName(event.target.value)}
       ></input>
+      <input
+        placeholder="date - default to today"
+        type="text"
+        onChange={event => setDate(event.target.value)}
+      ></input>
       <NoteAddSelect
         options={options.categories}
         optionsType="categories"
@@ -116,12 +124,12 @@ const NoteAdd = ({ options }: any) => {
       ></NoteAddSelect>
       <NoteAddSelect
         options={options.teachers}
-        optionsType="techniques"
+        optionsType="teachers"
         handleSelect={handleSelect}
       ></NoteAddSelect>
       <NoteAddSelect
         options={options.techniques}
-        optionsType="teachers"
+        optionsType="techniques"
         handleSelect={handleSelect}
       ></NoteAddSelect>
       <NoteAddText
