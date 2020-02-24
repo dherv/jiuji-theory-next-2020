@@ -9,7 +9,8 @@ export default class MyDocument extends Document {
     const GlobalStyles = createGlobalStyle`
     :root {
       --title-font: "Bungee Shade", cursive;
-      --main-font: "Poiret One", cursive;
+      --main-font: "Open Sans", Arial, sans-serif;
+      --second-font: "Poiret One", cursive;
       --main-background: #fff;
       --main-color-text: #212121
     }

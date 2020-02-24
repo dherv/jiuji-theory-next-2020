@@ -8,7 +8,7 @@ export default function MyApp({ Component, pageProps }) {
         <title>Jiuji Theory</title>
         <link rel="icon" href="/favicon.ico" />
         <link
-          href="https://fonts.googleapis.com/css?family=Bungee+Shade|Poiret+One&display=swap"
+          href="https://fonts.googleapis.com/css?family=Bungee+Shade|Poiret+One|Open+Sans:300,400,600,700&display=swap"
           rel="stylesheet"
         />
       </Head>

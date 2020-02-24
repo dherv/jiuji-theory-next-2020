@@ -20,6 +20,7 @@ export const SCNav = {
   `,
 
   Link: styled.a`
+    font-family: var(--second-font);
     font-size: 1.25rem;
     cursor: pointer;
   `
