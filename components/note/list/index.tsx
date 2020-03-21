@@ -4,18 +4,18 @@ import { INote } from "../../../interfaces/interfaces";
 import { SCNoteList as SC } from "./index.styled";
 import NoteListItems from "./NoteListItems";
 
-const fetchNotes = () => {
-  return Api.get("/notes")
-    .then(response => response)
-    .catch(error => console.error(error));
+const fetchNotes = (setNotes): Promise<INote[]> => {
+  return Api.get<INote[]>("/notes")
+    .then(notes => setNotes(notes))
+    .catch(error => {
+      return console.error(error);
+    });
 };
 
 const NoteList = ({ options }: any) => {
   const [notes, setNotes] = useState<INote[]>([]);
   useEffect(() => {
-    fetchNotes().then(notes => {
-      setNotes(notes);
-    });
+    fetchNotes(setNotes);
   }, []);
 
   return (

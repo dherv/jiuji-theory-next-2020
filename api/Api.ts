@@ -3,21 +3,46 @@ export default class Api {
   static url(endpoint) {
     return `${this.prefix}${endpoint}`;
   }
-  static get(endpoint) {
-    return fetch(this.url(endpoint))
-      .then(response => response.json())
-      .catch(error => console.error(error));
+  static headers(): Headers {
+    const requestHeaders = new Headers({
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    });
+
+    return requestHeaders;
   }
 
-  static post(endpoint, body) {
+  static get<T>(endpoint: string): Promise<T[]> {
+    return fetch(this.url(endpoint), {
+      headers: this.headers()
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json() as Promise<T[]>;
+      })
+      .catch((error: Error) => {
+        // ADD LOGGER HERE
+        throw error; // rethrow the error so consumer can still catch it
+      });
+  }
+
+  static post<B, T>(endpoint: string, body: B): Promise<void | T> {
     return fetch(this.url(endpoint), {
       method: "POST",
       body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      headers: this.headers()
     })
-      .then(response => response.json())
-      .catch(error => console.error(error));
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json() as Promise<T>;
+      })
+      .catch((error: Error) => {
+        // ADD LOGGER HERE
+        throw error; // rethrow the error so consumer can still catch it
+      });
   }
 }

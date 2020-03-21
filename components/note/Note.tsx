@@ -10,47 +10,52 @@ import {
 import NoteAdd from "./add";
 import NoteList from "./list";
 
-const fetchOptions = async (optionType: string) => {
+const fetchOptions = async <T extends {}>(optionType: string): Promise<T[]> => {
   const url = `/${optionType}`;
-  return await Api.get(url);
+  return Api.get<T>(url);
 };
-const fetchCategories = () => fetchOptions("categories");
-const fetchPositions = () => fetchOptions("positions");
-const fetchTeachers = () => fetchOptions("teachers");
-const fetchTechniques = () => fetchOptions("techniques");
+const fetchCategories = () => fetchOptions<ICategory>("categories");
+const fetchPositions = () => fetchOptions<IPosition>("positions");
+const fetchTeachers = () => fetchOptions<ITeacher>("teachers");
+const fetchTechniques = () => fetchOptions<ITechnique>("techniques");
 
-const fetchData = (): any => {
+const fetchData = (): Promise<{
+  categories: ICategory[];
+  positions: IPosition[];
+  teachers: ITeacher[];
+  techniques: ITechnique[];
+}> => {
   //TODO: use promise.allSettled once available in typescript
   return Promise.all([
     fetchCategories(),
     fetchPositions(),
     fetchTeachers(),
     fetchTechniques()
-  ])
-    .then(([categories, positions, teachers, techniques]) => {
-      return { categories, positions, teachers, techniques };
-    })
-    .catch(error => console.error(error));
+  ]).then((data: [ICategory[], IPosition[], ITeacher[], ITechnique[]]) => {
+    const [categories, positions, teachers, techniques] = data;
+    return { categories, positions, teachers, techniques };
+  });
 };
 
 const promise = fetchData;
 
 const Note = () => {
-  const [categories, setCategories] = useState<ICategory>();
-  const [positions, setPositions] = useState<IPosition>();
-  const [teachers, setTeachers] = useState<ITeacher>();
-  const [techniques, setTechniques] = useState<ITechnique>();
+  const [categories, setCategories] = useState<ICategory[]>();
+  const [positions, setPositions] = useState<IPosition[]>();
+  const [teachers, setTeachers] = useState<ITeacher[]>();
+  const [techniques, setTechniques] = useState<ITechnique[]>();
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    promise().then(data => {
-      console.log({ data });
-      setCategories(data.categories);
-      setPositions(data.positions);
-      setTeachers(data.teachers);
-      setTechniques(data.techniques);
-      setLoaded(true);
-    });
+    promise()
+      .then(data => {
+        setCategories(data.categories);
+        setPositions(data.positions);
+        setTeachers(data.teachers);
+        setTechniques(data.techniques);
+        setLoaded(true);
+      })
+      .catch(error => console.error(error));
     return () => {};
   }, []);
   return (
