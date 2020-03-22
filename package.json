@@ -11,7 +11,7 @@
     "test:ci": "jest --ci"
   },
   "dependencies": {
-    "@bit/dherv.main.authentication": "^0.0.11",
+    "@bit/dherv.main.authentication": "^0.0.12",
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
