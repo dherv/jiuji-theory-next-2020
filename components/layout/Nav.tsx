@@ -7,12 +7,12 @@ const Nav: FC<{}> = () => (
     <SC.Title>jiuji theory</SC.Title>
     <ul>
       <SC.ListItem>
-        <Link href="/about">
+        <Link href="/videos">
           <SC.Link>videos</SC.Link>
         </Link>
       </SC.ListItem>
       <SC.ListItem>
-        <Link href="/about">
+        <Link href="/account">
           <SC.Link>account</SC.Link>
         </Link>
       </SC.ListItem>
