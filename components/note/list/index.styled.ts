@@ -4,6 +4,7 @@ export const SCNoteList = {
   List: styled.ul`
     min-width: 400px;
     max-width: 600px;
+    margin: 0 4rem;
   `,
   ListItem: styled.li`
     padding: 1rem 0;

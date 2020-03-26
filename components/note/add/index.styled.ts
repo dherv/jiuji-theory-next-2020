@@ -5,6 +5,5 @@ export const SCNoteAdd = {
     display: flex;
     flex-direction: column;
     width: 350px;
-    padding: 0 2rem;
   `
 };

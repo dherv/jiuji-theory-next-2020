@@ -19,7 +19,7 @@ const NoteList = ({ options }: any) => {
   }, []);
 
   return (
-    <SC.List style={{ padding: "0 2rem" }}>
+    <SC.List>
       {notes.map(n => (
         <SC.ListItem key={n.id}>
           <ul>
