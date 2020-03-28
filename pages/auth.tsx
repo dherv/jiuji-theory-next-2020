@@ -2,7 +2,7 @@ import React from "react";
 import Authentication from "@bit/dherv.main.authentication";
 import { useRouter } from "next/router";
 
-const Auth = () => {
+const AuthPage = () => {
   const router = useRouter();
 
   return (
@@ -14,4 +14,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default AuthPage;
