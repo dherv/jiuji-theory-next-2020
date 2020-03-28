@@ -47,3 +47,15 @@ export interface INoteInput {
   orderNumber: number;
   text: string;
 }
+
+export interface IVideo {
+  youtubeId: string;
+  title: string;
+  description: string;
+  position?: IPosition;
+  technique?: ITechnique;
+  category?: ICategory;
+  notes?: INote[];
+  updatedAt?: Date;
+  createdAt?: Date;
+}

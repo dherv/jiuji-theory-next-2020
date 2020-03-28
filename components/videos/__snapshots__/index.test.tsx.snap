@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Videos component should fetch and display a list of videos  1`] = `
+<DocumentFragment>
+  <form>
+    <label
+      for="searchInput"
+    >
+      search BJJ videos
+    </label>
+    <input
+      id="searchInput"
+      placeholder="search"
+    />
+    <button>
+      search
+    </button>
+  </form>
+  <ul
+    class="VideosListstyled__List-sc-599crm-0 iuxoSV"
+  >
+    <li
+      class="VideosListstyled__ListItem-sc-599crm-1 fsPLJX"
+    >
+      <div
+        class="VideosListstyled__VideoCard-sc-599crm-2 gjvOAZ"
+      >
+        <div
+          class=""
+        >
+          <div />
+        </div>
+        <div
+          class="VideosListstyled__VideoCardContent-sc-599crm-3 eFwPQv"
+        >
+          <h5
+            class="VideosListstyled__VideoCardTitle-sc-599crm-4 beRIiU"
+          >
+            test1
+          </h5>
+          <h5>
+            testDescription1
+          </h5>
+        </div>
+      </div>
+    </li>
+    <li
+      class="VideosListstyled__ListItem-sc-599crm-1 fsPLJX"
+    >
+      <div
+        class="VideosListstyled__VideoCard-sc-599crm-2 gjvOAZ"
+      >
+        <div
+          class=""
+        >
+          <div />
+        </div>
+        <div
+          class="VideosListstyled__VideoCardContent-sc-599crm-3 eFwPQv"
+        >
+          <h5
+            class="VideosListstyled__VideoCardTitle-sc-599crm-4 beRIiU"
+          >
+            test2
+          </h5>
+          <h5>
+            testDescription2
+          </h5>
+        </div>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Videos component should fetch videos on search and replace the default list of videos 1`] = `
+<DocumentFragment>
+  <form>
+    <label
+      for="searchInput"
+    >
+      search BJJ videos
+    </label>
+    <input
+      id="searchInput"
+      placeholder="search"
+    />
+    <button>
+      search
+    </button>
+  </form>
+  <ul
+    class="VideosListSearchstyled__List-f1y4wp-0 kQuvvS"
+  >
+    <li
+      class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+    >
+      <div
+        class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+      >
+        <div
+          class=""
+        >
+          <div />
+        </div>
+        <div
+          class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+        >
+          <h5
+            class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+          >
+            test1
+          </h5>
+          <h5>
+            testDescription1
+          </h5>
+        </div>
+      </div>
+    </li>
+    <li
+      class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+    >
+      <div
+        class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+      >
+        <div
+          class=""
+        >
+          <div />
+        </div>
+        <div
+          class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+        >
+          <h5
+            class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+          >
+            test2
+          </h5>
+          <h5>
+            testDescription2
+          </h5>
+        </div>
+      </div>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
