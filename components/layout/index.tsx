@@ -8,9 +8,9 @@ const Layout: FC<{}> = ({ children }) => {
       <header>
         <Nav />
       </header>
-      <main>
+      <SC.Main>
         <SC.MainContainer>{children}</SC.MainContainer>
-      </main>
+      </SC.Main>
     </SC.Layout>
   );
 };
