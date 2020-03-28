@@ -28,7 +28,7 @@ export default class Api {
       });
   }
 
-  static post<B, T>(endpoint: string, body: B): Promise<void | T> {
+  static post<B, T>(endpoint: string, body: B): Promise<T> {
     return fetch(this.url(endpoint), {
       method: "POST",
       body: JSON.stringify(body),
