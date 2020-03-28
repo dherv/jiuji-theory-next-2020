@@ -3,14 +3,25 @@ import { render, wait, cleanup, fireEvent } from "@testing-library/react";
 import NoteList from "./index";
 
 describe("NoteList", () => {
-  const props = {};
+  const sample = [
+    { id: 1, name: "optionsSample1" },
+    { id: 2, name: "optionsSample2" }
+  ];
+  const props = {
+    options: {
+      categories: sample,
+      techniques: sample,
+      teachers: sample,
+      positions: sample
+    }
+  };
 
   describe("NoteList component", () => {
     describe("user interface", () => {
       const sample = [
         {
           id: 5,
-          name: "test1",
+          name: "note.test1",
           variant: null,
           categoryId: 1,
           positionId: 1,
@@ -21,7 +32,7 @@ describe("NoteList", () => {
           noteItems: [
             {
               id: 1,
-              text: "test",
+              text: "note.noteItems.test1",
               orderNumber: 0,
               noteId: 5,
               createdAt: "2020-02-15T06:37:46.530Z",
@@ -31,7 +42,7 @@ describe("NoteList", () => {
         },
         {
           id: 10,
-          name: "test2",
+          name: "note.test2",
           variant: null,
           categoryId: 1,
           positionId: 1,
@@ -42,7 +53,7 @@ describe("NoteList", () => {
           noteItems: [
             {
               id: 2,
-              text: "test",
+              text: "note.noteItems.test2",
               orderNumber: 0,
               noteId: 10,
               createdAt: "2020-02-15T06:40:54.579Z",
@@ -66,14 +77,20 @@ describe("NoteList", () => {
         jest.resetAllMocks();
       });
 
-      test("should display a list of items from the api ", async () => {
-        const { getByText } = render(<NoteList />);
-        await wait(() => {
-          expect(getByText("test1")).toBeDefined();
-          expect(getByText("test2")).toBeDefined();
-        });
+      test("should fetch and display notes with the note_items", async () => {
+        const { queryByText, getAllByText } = render(<NoteList {...props} />);
+        await wait();
+        expect(queryByText("note.test1")).toBeDefined();
+        expect(queryByText("note.test2")).toBeDefined();
+        expect(getAllByText("0 - note.noteItems.test1")).toHaveLength(1);
+        expect(getAllByText("0 - note.noteItems.test2")).toHaveLength(1);
       });
-      test("should display the number of items ", () => {});
+      test("should display options for each notes", async () => {
+        const { queryByText, getAllByText } = render(<NoteList {...props} />);
+        await wait();
+        expect(getAllByText("optionsSample1")).toHaveLength(6);
+        expect(queryByText("optionsSample2")).toBeNull();
+      });
     });
     describe("events", () => {});
   });

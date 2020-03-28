@@ -37,7 +37,7 @@ const NoteList = ({ options }: any) => {
               </div>
               <div>/</div>
               <div>
-                {options.positions.find(p => p.id === n.teacherId).name}
+                {options.positions.find(p => p.id === n.positionId).name}
               </div>
             </SC.ListItemHeaderSub>
             <SC.ListItemTitle>{n.name}</SC.ListItemTitle>

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@bit/dherv.main.authentication": "^0.0.12",
+    "@types/jest": "^25.1.4",
     "@types/react-youtube": "^7.6.2",
     "next": "latest",
     "react": "^16.12.0",
