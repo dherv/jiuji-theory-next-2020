@@ -5,10 +5,11 @@ import { SCVideosList } from "./VideosList.styled";
 import { SCVideosListSearch } from "./VideosListSearch.styled";
 import { VideosUtils } from "./videos.utils";
 
-const VideosList: FC<{ videos: IVideo[]; searchOn: boolean }> = ({
-  videos,
-  searchOn
-}) => {
+const VideosList: FC<{
+  videos: IVideo[];
+  searchOn: boolean;
+  addVideo: (video: IVideo) => void;
+}> = ({ videos, searchOn, addVideo }) => {
   const SC = searchOn ? SCVideosListSearch : SCVideosList;
 
   return (
@@ -30,6 +31,13 @@ const VideosList: FC<{ videos: IVideo[]; searchOn: boolean }> = ({
             <SC.VideoCardContent>
               <SC.VideoCardTitle>{title}</SC.VideoCardTitle>
               <h5>{description}</h5>
+              {searchOn ? (
+                <button
+                  onClick={() => addVideo({ youtubeId, title, description })}
+                >
+                  +
+                </button>
+              ) : null}
             </SC.VideoCardContent>
           </SC.VideoCard>
         </SC.ListItem>

@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const SCVideosListSearch = {
-  List: styled.ul`
-    margin: 2rem 0;
-  `,
+  List: styled.ul``,
   ListItem: styled.li`
     margin: 1rem 0;
   `,

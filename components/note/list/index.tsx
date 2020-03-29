@@ -5,7 +5,7 @@ import { SCNoteList as SC } from "./index.styled";
 import NoteListItems from "./NoteListItems";
 
 const fetchNotes = (setNotes): Promise<INote[]> => {
-  return Api.get<INote[]>("/notes")
+  return Api.get<INote>("/notes")
     .then(notes => setNotes(notes))
     .catch(error => {
       return console.error(error);

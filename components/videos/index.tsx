@@ -2,15 +2,27 @@ import { useState, useEffect, MouseEvent } from "react";
 import Api from "../../api/Api";
 import VideosSearchForm from "./VideosSearchForm";
 import VideosList from "./VideosList";
-import { IVideo } from "../../interfaces/interfaces";
+import { IVideo, INote } from "../../interfaces/interfaces";
+import { SCVideos as SC } from "./index.styled";
+import VideosSelectNotes from "./VideosSelectNotes";
 
 const Videos = () => {
   const [videos, setVideos] = useState<any[]>([]);
   const [searchOn, setSearchOn] = useState<boolean>(false);
+  const [videoToAdd, setVideoToAdd] = useState<IVideo>(null);
+  const [notes, setNotes] = useState<INote[]>([]);
 
   useEffect(() => {
     fetchVideos();
   }, []);
+
+  const fetchNotes = (): Promise<void> => {
+    return Api.get<INote>("/notes")
+      .then(notes => setNotes(notes))
+      .catch(error => {
+        return console.error(error);
+      });
+  };
 
   const fetchVideos = () => {
     Api.get("/videos")
@@ -36,10 +48,32 @@ const Videos = () => {
       .catch(error => console.error(error));
   };
 
+  const addVideo = async (video: IVideo): Promise<void> => {
+    await fetchNotes();
+    setVideoToAdd(video);
+  };
+
+  const saveVideoWithNotes = (notes: INote[]) => {
+    const video = videoToAdd;
+    videoToAdd.notes = notes;
+    Api.post<IVideo, IVideo>("/videos", video)
+      .then(() => setVideoToAdd(null))
+      .catch(error => console.error(error));
+  };
+
   return (
     <>
       <VideosSearchForm onSearch={search} />
-      <VideosList videos={videos} searchOn={searchOn} />
+      <SC.VideosContainer>
+        <VideosList videos={videos} searchOn={searchOn} addVideo={addVideo} />
+        {videoToAdd !== null && (
+          <VideosSelectNotes
+            notes={notes}
+            videoTitle={videoToAdd.title}
+            saveVideoWithNotes={saveVideoWithNotes}
+          />
+        )}
+      </SC.VideosContainer>
     </>
   );
 };

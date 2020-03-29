@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Videos component should fetch and display a list of videos  1`] = `
+exports[`Videos component list mode should fetch and display a list of videos  1`] = `
 <DocumentFragment>
   <form>
     <label
@@ -16,64 +16,68 @@ exports[`Videos component should fetch and display a list of videos  1`] = `
       search
     </button>
   </form>
-  <ul
-    class="VideosListstyled__List-sc-599crm-0 iuxoSV"
+  <div
+    class="indexstyled__VideosContainer-otcjc4-0 pNJZx"
   >
-    <li
-      class="VideosListstyled__ListItem-sc-599crm-1 fsPLJX"
+    <ul
+      class="VideosListstyled__List-sc-599crm-0 iuxoSV"
     >
-      <div
-        class="VideosListstyled__VideoCard-sc-599crm-2 gjvOAZ"
+      <li
+        class="VideosListstyled__ListItem-sc-599crm-1 fsPLJX"
       >
         <div
-          class=""
+          class="VideosListstyled__VideoCard-sc-599crm-2 gjvOAZ"
         >
-          <div />
-        </div>
-        <div
-          class="VideosListstyled__VideoCardContent-sc-599crm-3 eFwPQv"
-        >
-          <h5
-            class="VideosListstyled__VideoCardTitle-sc-599crm-4 beRIiU"
+          <div
+            class=""
           >
-            test1
-          </h5>
-          <h5>
-            testDescription1
-          </h5>
+            <div />
+          </div>
+          <div
+            class="VideosListstyled__VideoCardContent-sc-599crm-3 eFwPQv"
+          >
+            <h5
+              class="VideosListstyled__VideoCardTitle-sc-599crm-4 beRIiU"
+            >
+              test1
+            </h5>
+            <h5>
+              testDescription1
+            </h5>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      class="VideosListstyled__ListItem-sc-599crm-1 fsPLJX"
-    >
-      <div
-        class="VideosListstyled__VideoCard-sc-599crm-2 gjvOAZ"
+      </li>
+      <li
+        class="VideosListstyled__ListItem-sc-599crm-1 fsPLJX"
       >
         <div
-          class=""
+          class="VideosListstyled__VideoCard-sc-599crm-2 gjvOAZ"
         >
-          <div />
-        </div>
-        <div
-          class="VideosListstyled__VideoCardContent-sc-599crm-3 eFwPQv"
-        >
-          <h5
-            class="VideosListstyled__VideoCardTitle-sc-599crm-4 beRIiU"
+          <div
+            class=""
           >
-            test2
-          </h5>
-          <h5>
-            testDescription2
-          </h5>
+            <div />
+          </div>
+          <div
+            class="VideosListstyled__VideoCardContent-sc-599crm-3 eFwPQv"
+          >
+            <h5
+              class="VideosListstyled__VideoCardTitle-sc-599crm-4 beRIiU"
+            >
+              test2
+            </h5>
+            <h5>
+              testDescription2
+            </h5>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </DocumentFragment>
 `;
 
-exports[`Videos component should fetch videos on search and replace the default list of videos 1`] = `
+exports[`Videos component search mode should display a list of notes when clicking a video + button 1`] = `
 <DocumentFragment>
   <form>
     <label
@@ -89,59 +93,261 @@ exports[`Videos component should fetch videos on search and replace the default 
       search
     </button>
   </form>
-  <ul
-    class="VideosListSearchstyled__List-f1y4wp-0 kQuvvS"
+  <div
+    class="indexstyled__VideosContainer-otcjc4-0 pNJZx"
   >
-    <li
-      class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+    <ul
+      class="VideosListSearchstyled__List-f1y4wp-0 kCfegp"
     >
-      <div
-        class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+      <li
+        class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
       >
         <div
-          class=""
+          class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
         >
-          <div />
-        </div>
-        <div
-          class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
-        >
-          <h5
-            class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+          <div
+            class=""
           >
-            test1
-          </h5>
-          <h5>
-            testDescription1
-          </h5>
+            <div />
+          </div>
+          <div
+            class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+          >
+            <h5
+              class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+            >
+              test1
+            </h5>
+            <h5>
+              testDescription1
+            </h5>
+            <button>
+              +
+            </button>
+          </div>
         </div>
-      </div>
-    </li>
-    <li
-      class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
-    >
-      <div
-        class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+      </li>
+      <li
+        class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
       >
         <div
-          class=""
+          class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
         >
-          <div />
-        </div>
-        <div
-          class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
-        >
-          <h5
-            class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+          <div
+            class=""
           >
-            test2
-          </h5>
-          <h5>
-            testDescription2
-          </h5>
+            <div />
+          </div>
+          <div
+            class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+          >
+            <h5
+              class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+            >
+              test2
+            </h5>
+            <h5>
+              testDescription2
+            </h5>
+            <button>
+              +
+            </button>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+    <div
+      class="VideosSelectNotesstyled__Container-sc-1qpuf60-0 klBFDz"
+    >
+      <h4
+        class="VideosSelectNotesstyled__VideoTitle-sc-1qpuf60-2 kkswtT"
+      >
+         test1 
+      </h4>
+      <label
+        class="VideosSelectNotesstyled__Label-sc-1qpuf60-3 fQOkyF"
+        for="selectVideoNotes"
+      >
+        Choose related notes:
+      </label>
+      <select
+        class="VideosSelectNotesstyled__Select-sc-1qpuf60-1 ljHWSm"
+        id="selectVideoNotes"
+        multiple=""
+      >
+        <option
+          value="1"
+        >
+          note1
+        </option>
+        <option
+          value="2"
+        >
+          note2
+        </option>
+      </select>
+      <button>
+        save
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Videos component search mode should fetch videos on search and replace the default list of videos 1`] = `
+<DocumentFragment>
+  <form>
+    <label
+      for="searchInput"
+    >
+      search BJJ videos
+    </label>
+    <input
+      id="searchInput"
+      placeholder="search"
+    />
+    <button>
+      search
+    </button>
+  </form>
+  <div
+    class="indexstyled__VideosContainer-otcjc4-0 pNJZx"
+  >
+    <ul
+      class="VideosListSearchstyled__List-f1y4wp-0 kCfegp"
+    >
+      <li
+        class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+      >
+        <div
+          class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+        >
+          <div
+            class=""
+          >
+            <div />
+          </div>
+          <div
+            class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+          >
+            <h5
+              class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+            >
+              test1
+            </h5>
+            <h5>
+              testDescription1
+            </h5>
+            <button>
+              +
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+      >
+        <div
+          class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+        >
+          <div
+            class=""
+          >
+            <div />
+          </div>
+          <div
+            class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+          >
+            <h5
+              class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+            >
+              test2
+            </h5>
+            <h5>
+              testDescription2
+            </h5>
+            <button>
+              +
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Videos component search mode should save the video with the selected notes 1`] = `
+<DocumentFragment>
+  <form>
+    <label
+      for="searchInput"
+    >
+      search BJJ videos
+    </label>
+    <input
+      id="searchInput"
+      placeholder="search"
+    />
+    <button>
+      search
+    </button>
+  </form>
+  <div
+    class="indexstyled__VideosContainer-otcjc4-0 pNJZx"
+  >
+    <ul
+      class="VideosListSearchstyled__List-f1y4wp-0 kCfegp"
+    >
+      <li
+        class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+      >
+        <div
+          class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+        >
+          <div
+            class=""
+          >
+            <div />
+          </div>
+          <div
+            class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+          >
+            <h5
+              class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+            />
+            <h5 />
+            <button>
+              +
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="VideosListSearchstyled__ListItem-f1y4wp-1 hFYOFR"
+      >
+        <div
+          class="VideosListSearchstyled__VideoCard-f1y4wp-2 ioVfgg"
+        >
+          <div
+            class=""
+          >
+            <div />
+          </div>
+          <div
+            class="VideosListSearchstyled__VideoCardContent-f1y4wp-3 fXMJsV"
+          >
+            <h5
+              class="VideosListSearchstyled__VideoCardTitle-f1y4wp-4 lkkzpL"
+            />
+            <h5 />
+            <button>
+              +
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </DocumentFragment>
 `;
